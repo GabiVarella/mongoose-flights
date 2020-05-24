@@ -7,6 +7,10 @@
 <h3>Departure: <%= flight.departs  %></h3>
 
 <br><br><h2>Destinations</h2>
+<% flight.destinations.forEach(dest => { %>
+    <h3>Airport: <%= dest.airport  %></h3>
+    <h3>Arrival: <%= dest.arrival %></h3>
+<% }); %>
 <form method="POST"
   action="/flights/<%= flight._id %>/destinations">
   
