@@ -1,45 +1,51 @@
 <%- include("../partials/header") %>
-<br><br><h1>Flight Deets</h1>
+    <br><br><h1>Flight Details</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <h3>Airline: <%= flight.airline  %></h3>
-        <h3>Airport: <%= flight.airport  %></h3>
-        <h3>Flight Number: <%= flight.flightNo  %></h3>
-        <h3>Departure: <%= flight.departs  %></h3>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Airline: <%= flight.airline  %></h3>
+            <h3>Airport: <%= flight.airport  %></h3>
+            <h3>Flight Number: <%= flight.flightNo  %></h3>
+            <h3>Departure: <%= flight.departs  %></h3>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-       <br><br><h2>Destinations:</h2>
-        <% flight.destinations.forEach(dest => { %>
-        <h3>Airport: <%= dest.airport  %></h3>
-        <h3>Arrival: <%= dest.arrival %></h3>
-        <% }); %>
+    <div class="row">
+        <div class="col-md-4">
+            <br><br><h2>Destinations:</h2>
+            <% flight.destinations.forEach(dest => { %>
+            <h3>Airport: <%= dest.airport  %></h3>
+            <h3>Arrival: <%= dest.arrival %></h3>
+            <% }); %>
+        </div>
     </div>
-</div>
-<br>
-<div class="row">
-    <div class="col-md-4">
-        <form method="POST"action="/flights/<%= flight._id %>/destinations">  
-            <label>Destination:</label>
-            <select name="airport">
-                <option value="AUS">AUS</option>
-                <option value="DFW">DFW</option>
-                <option value="DEN">DEN</option>
-                <option value="LAX">LAX</option>
-                <option value="SAN">SAN</option>
-            </select>
-             <br><br>
-                <label>Arrival:
-                    <input type="datetime-local" name='arrival'>
-                </label>
+    <br>
+
+
+    <form method="GET" action="/flights/<%= flight._id %>/tickets/new">
+        <button type="submit" class="btn btn-outline-primary">Add a Ticket</button>
+    </form>
+      
+    <br><br><div class="row">
+        <div class="col-md-4">
+            <form method="GET" action="/flights/<%= flight._id %>/destinations">  
+                <label>Destination:</label>
+                <select name="airport">
+                    <option value="AUS">AUS</option>
+                    <option value="DFW">DFW</option>
+                    <option value="DEN">DEN</option>
+                    <option value="LAX">LAX</option>
+                    <option value="SAN">SAN</option>
+                </select>
                 <br><br>
-                    <input type="submit" value="Add Destination">
-        </form>
+                    <label>Arrival:
+                        <input type="datetime-local" name='arrival'>
+                    </label>
+                    <br><br>
+                        <input type="submit" value="Add Destination">
+            </form>
+        </div>
     </div>
-</div>
 
 
 

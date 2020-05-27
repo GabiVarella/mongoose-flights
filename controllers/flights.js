@@ -5,8 +5,9 @@ module.exports = {
     new: addFlight,
     create,
     show,
-    addDest
+    addDest,
 }
+
 
 function addDest(req, res){
     Flight.findById(req.params.id, function(err, flight){
