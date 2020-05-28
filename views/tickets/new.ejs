@@ -2,7 +2,7 @@
 
 <h2>Book a Ticket</h2>
 
-<form method="POST" action="/flights/<%= flight._id %>/tickets">
+<form method="POST" action="/tickets/flights/<%= flight._id %>/tickets">
     <label>Select a Seat(A1-F9):<br>
         <input name="seat" required pattern="[A-F][1-9]\d?">
     </label>
